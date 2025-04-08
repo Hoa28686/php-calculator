@@ -9,7 +9,7 @@ body {
 .container {
   text-align: center;
   background-color: white;
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding: 2rem;
   width: 600px;
   border-radius: 1rem;
@@ -18,9 +18,11 @@ body {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
-header {
-  padding: 2rem;
+h3 {
+  font-size: 2rem;
+  padding: 1rem;
 }
+
 .flex {
   display: flex;
   justify-content: center;
@@ -61,6 +63,9 @@ header {
   background: green;
   color: white;
   cursor: pointer;
+}
+.reset:hover {
+  color: yellow;
 }
 .result {
   font-weight: bold;
