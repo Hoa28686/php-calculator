@@ -24,7 +24,7 @@ if (isset($_POST['reset'])){
             if ($num2 != 0) {
                 $result = $num1 / $num2;
             } else {
-                $result = "can't divide by zero";
+                $result = "zero";
             }
             break;
     }
@@ -47,8 +47,8 @@ if (isset($_POST['reset'])){
         <h3>Calculator</h3>
         <form class="flex form" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <div class="number">
-                <input class="clean" type="number" step="any" name="num1" value="<?= $num1 ?>">
-                <input class="clean" type="number" step="any" name="num2" value="<?= $num2 ?>">
+                <input class="clean" type="number" step="any" name="num1" value="<?= $num1 ?>" required>
+                <input class="clean" type="number" step="any" name="num2" value="<?= $num2 ?>" required>
                 <input class="reset" type="submit" name="reset" value="Reset"  >
             </div>
             <div class="operator">
@@ -61,11 +61,16 @@ if (isset($_POST['reset'])){
         </form>
         
         <div class="result" >
-            <?php if ($result) {
+            <?php 
+            if ($result=="zero"){
+                echo "<script type='text/javascript'>alert(`Can't divide by zero.`)</script>";
+            } elseif($result) {
                 echo "$num1 $operator $num2 
                 <p>=</p>
                 <p>$result </p>";
-            }  ?>
+            }  
+            
+            ?>
         </div>
     </div>
 </body>
